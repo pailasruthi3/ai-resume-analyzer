@@ -1,5 +1,5 @@
 import streamlit as st
-import pypdf
+import PyPDF2
 import os
 from anthropic import Anthropic
 
@@ -111,7 +111,7 @@ with col2:
 def extract_text_from_pdf(uploaded_file):
     """Extract text from uploaded PDF file"""
     try:
-        pdf_reader = pypdf.PdfReader(uploaded_file)
+        pdf_reader = PyPDF2.PdfReader(uploaded_file)
         text = ""
         for page in pdf_reader.pages:
             text += page.extract_text()
