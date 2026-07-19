@@ -3,7 +3,8 @@ import json
 from anthropic import Anthropic
 
 # Initialize Anthropic client
-client = Anthropic()
+api_key = st.secrets.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+client = Anthropic(api_key=api_key)
 
 # Set page config
 st.set_page_config(
